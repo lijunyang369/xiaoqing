@@ -9,6 +9,11 @@ devices/
 canvas/
 update-check.json
 *.log
+memory/*.sqlite
+workspace/.openclaw/
+workspace/.clawhub/
+workspace-windows-ops/
+git-backup/
 
 # Runtime state / machine-local internals
 agents/
