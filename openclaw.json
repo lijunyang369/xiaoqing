@@ -52,6 +52,16 @@
           "theme": "资讯智能体 / 新闻研判员",
           "emoji": "📰"
         }
+      },
+      {
+        "id": "browser-ops",
+        "name": "browser-ops",
+        "workspace": "C:\\Users\\wei\\.openclaw\\workspace-browser",
+        "identity": {
+          "name": "青览",
+          "theme": "浏览器专职智能体",
+          "emoji": "🌐"
+        }
       }
     ]
   },
