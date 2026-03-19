@@ -1,0 +1,25 @@
+# Secrets / local auth
+openclaw.json.bak*
+identity/
+logs/
+subagents/
+completions/
+cron/
+devices/
+canvas/
+update-check.json
+*.log
+
+# Runtime state / machine-local internals
+agents/
+exec-approvals.json
+workspace/.git.workspace.backup.*
+workspace/.git
+workspace-news/.git
+workspace-windows-ops/.git
+
+# Local-only / sensitive clutter
+**/*.token
+**/*.secret
+**/.cache/
+**/node_modules/
