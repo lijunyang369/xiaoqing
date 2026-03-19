@@ -10,10 +10,11 @@
 - 已完成：
   - 根仓库已迁到 `C:\Users\wei\.openclaw`
   - remote 已配置为 GitHub 仓库
+  - 本地 GitHub SSH key 已生成并配置默认使用
 - 当前阻塞：
-  - SSH 鉴权失败：`Permission denied (publickey)`
+  - GitHub 端公钥授权 / push 结果仍待最终验证
 - 下一步：
-  - 打通本机 GitHub SSH key 或改走 HTTPS/token
+  - 继续验证 `ssh -T git@github.com` 与 `git push`
 
 ### 2) browser-ops / 青览打通 GitHub 浏览器配置
 - 状态：进行中
@@ -21,12 +22,26 @@
 - 已完成：
   - `browser-ops` agent 已创建
   - 已加载到 gateway
+  - browser 官方能力存在
+  - 当前用户手动启动 browser 后，青览已推进本地 GitHub SSH 准备工作
+  - Discord 已配置完成，后续浏览器类任务可优先尝试通过 Discord 线程/子会话承接
 - 当前阻塞：
-  - 尚未确认当前环境是否把可实操的 browser 工具面暴露给 agent
+  - 浏览器自动控制链在 agent 侧仍不稳定，尚未可靠完成 GitHub 页面自动操作
 - 下一步：
-  - 验证 browser 工具面可用性，再进入 GitHub 页面配置
+  - 继续围绕 GitHub 配置链推进，优先完成 SSH/push 验证；随后在 Discord 中验证青览线程化承接能力
 
-### 3) news-brief / 青闻日报试运行
+### 3) Discord 持久会话配置
+- 状态：已完成
+- 目标：让 Discord 成为可承载持久子会话/线程化协作的渠道
+- 已完成：
+  - Discord 渠道已写入配置并通过校验
+  - Bot 已成功登录并已能回复
+  - 已开启 `threadBindings.enabled = true`
+  - 已开启 `threadBindings.spawnSubagentSessions = true`
+- 当前说明：
+  - 配置目标已完成；后续如要验证 thread/子会话体验，再在 Discord 实际使用中继续检验
+
+### 4) news-brief / 青闻日报试运行
 - 状态：进行中
 - 目标：产出一版可交付的每日首次汇报样例（AI / 科学 / 中国新闻）
 - 已完成：
