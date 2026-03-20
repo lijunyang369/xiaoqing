@@ -12,8 +12,15 @@ update-check.json
 memory/*.sqlite
 workspace/.openclaw/
 workspace/.clawhub/
+workspace-browser/.openclaw/
+workspace-news/.openclaw/
+workspace-windows-ops/.openclaw/
 workspace-windows-ops/
 git-backup/
+browser/
+.env
+.env.*
+!.env.example
 
 # Runtime state / machine-local internals
 agents/

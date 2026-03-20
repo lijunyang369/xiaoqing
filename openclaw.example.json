@@ -1,13 +1,6 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.13",
-    "lastTouchedAt": "2026-03-19T02:53:57.629Z"
-  },
-  "wizard": {
-    "lastRunAt": "2026-03-16T07:48:10.257Z",
-    "lastRunVersion": "2026.3.13",
-    "lastRunCommand": "onboard",
-    "lastRunMode": "local"
+    "lastTouchedVersion": "2026.3.13"
   },
   "auth": {
     "profiles": {
@@ -24,7 +17,7 @@
       },
       "workspace": "C:\\Users\\wei\\.openclaw\\workspace",
       "compaction": {
-        "mode": "safeguard"
+        "mode": "default"
       },
       "elevatedDefault": "full"
     },
@@ -61,6 +54,9 @@
           "name": "青览",
           "theme": "浏览器专职智能体",
           "emoji": "🌐"
+        },
+        "tools": {
+          "allow": ["browser"]
         }
       }
     ]
@@ -70,9 +66,7 @@
     "elevated": {
       "enabled": true,
       "allowFrom": {
-        "webchat": [
-          "id:openclaw-control-ui"
-        ]
+        "webchat": ["id:openclaw-control-ui"]
       }
     }
   },
@@ -93,12 +87,16 @@
       "allowedOrigins": [
         "http://localhost:18789",
         "http://127.0.0.1:18789",
-        "https://cosmographical-madisyn-unstultifying.ngrok-free.dev"
+        "https://your-ngrok-or-domain.example"
       ]
     },
     "auth": {
       "mode": "token",
-      "token": "9ce5e94572602f9226944853138d5c5f1ef42b3953b82c06"
+      "token": {
+        "source": "env",
+        "provider": "default",
+        "id": "OPENCLAW_GATEWAY_TOKEN"
+      }
     },
     "tailscale": {
       "mode": "off",
@@ -115,5 +113,65 @@
         "sms.send"
       ]
     }
-  }
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "accounts": {
+        "default": {
+          "token": {
+            "source": "env",
+            "provider": "default",
+            "id": "DISCORD_BOT_TOKEN"
+          }
+        },
+        "qinglan": {
+          "token": {
+            "source": "env",
+            "provider": "default",
+            "id": "DISCORD_BOT_TOKEN_QINGLAN"
+          }
+        }
+      },
+      "dmPolicy": "pairing",
+      "allowFrom": ["1128130258026106991"],
+      "groupPolicy": "allowlist",
+      "guilds": {
+        "1128133439175012505": {
+          "requireMention": true,
+          "users": ["1128130258026106991"]
+        }
+      },
+      "threadBindings": {
+        "enabled": true,
+        "idleHours": 24,
+        "maxAgeHours": 0,
+        "spawnSubagentSessions": true
+      },
+      "actions": {
+        "reactions": true,
+        "messages": true,
+        "threads": true,
+        "pins": true,
+        "memberInfo": true,
+        "channelInfo": true
+      }
+    }
+  },
+  "bindings": [
+    {
+      "match": {
+        "channel": "discord",
+        "accountId": "default"
+      },
+      "agentId": "main"
+    },
+    {
+      "match": {
+        "channel": "discord",
+        "accountId": "qinglan"
+      },
+      "agentId": "browser-ops"
+    }
+  ]
 }
