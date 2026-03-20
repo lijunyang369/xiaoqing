@@ -327,20 +327,24 @@ openclaw gateway restart
 
 ---
 
+## 配套资产
+
+仓库中已补齐这些恢复配套文件：
+- `INIT-OPENCLAW.ps1`：Windows 新机初始化检查脚本
+- `AGENT-RECOVERY-CHECKLIST.md`：agent 恢复验证清单
+- `BROWSER-OPS-RECOVERY.md`：browser-ops 恢复标准与排障重点
+
 ## 未来可继续补强的两项
 
-### A. 新机初始化脚本
-做一个脚本自动完成：
-- 检查 Git / Node / OpenClaw
-- 复制模板配置
-- 提示缺少哪些 env
-- 做最小自检
+### A. 跨平台初始化脚本
+当前已提供 Windows PowerShell 版本，后续可再补：
+- `init-openclaw.sh`
+- macOS / Linux 环境变量检查与模板复制
 
-### B. agent 能力恢复清单
-单独整理：
-- main
-- windows-ops
-- news-brief
-- browser-ops
+### B. agent 恢复自动验证
+后续可继续把：
+- session 创建验证
+- browser 注入验证
+- gateway 自检
 
-分别在新机会话中应该验证什么，避免以后重复排障。
+做成半自动检查流程，进一步减少人工排障。
