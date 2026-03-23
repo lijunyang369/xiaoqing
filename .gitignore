@@ -35,3 +35,7 @@ workspace-windows-ops/.git
 **/*.secret
 **/.cache/
 **/node_modules/
+
+# Legacy local dirs
+.openclaw/
+xiaoqing/
