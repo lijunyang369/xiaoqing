@@ -1,6 +1,6 @@
 # TASKS.md
 
-最后更新：2026-03-19
+最后更新：2026-03-23
 
 ## 进行中
 
@@ -17,18 +17,19 @@
   - 继续验证 `ssh -T git@github.com` 与 `git push`
 
 ### 2) browser-ops / 青览打通 GitHub 浏览器配置
-- 状态：进行中
+- 状态：已完成
 - 目标：通过专职浏览器 agent 完成 GitHub 相关网页配置
 - 已完成：
-  - `browser-ops` agent 已创建
-  - 已加载到 gateway
-  - browser 官方能力存在
-  - 当前用户手动启动 browser 后，青览已推进本地 GitHub SSH 准备工作
-  - Discord 已配置完成，后续浏览器类任务可优先尝试通过 Discord 线程/子会话承接
-- 当前阻塞：
-  - 浏览器自动控制链在 agent 侧仍不稳定，尚未可靠完成 GitHub 页面自动操作
+  - `browser-ops` agent 已创建并加载到 gateway
+  - Discord 侧 `青览` 账号已成功登录并可承接会话
+  - WSL 自管浏览器验收通过，可访问 GitHub
+  - 已确认：青览已具备承接 GitHub / 浏览器页面类任务的能力
+- 当前说明：
+  - 当前可用主路径是 WSL 自管浏览器
+  - `chrome-relay` 仍未稳定可用，不作为当前默认执行路径
 - 下一步：
-  - 继续围绕 GitHub 配置链推进，优先完成 SSH/push 验证；随后在 Discord 中验证青览线程化承接能力
+  - 浏览器公开页 / 无登录页任务优先分流给青览处理
+  - 需要登录态、2FA、验证码或高风险写操作时，再切人工浏览器接管
 
 ### 3) Discord 持久会话配置
 - 状态：已完成
@@ -68,4 +69,6 @@
 - ngrok 自启动已配置
 - 每日首次交互已接入 ngrok 状态 / 域名变化汇报
 - `news-brief`、`browser-ops`、`windows-ops` agent 已加载
+- Discord 双 bot（`小青` / `青览`）已成功上线
+- WSL 自管浏览器验收通过，青览已具备浏览器页面类任务承接能力
 - 根仓库 Git 结构已整理到 `C:\Users\wei\.openclaw`
