@@ -1,0 +1,51 @@
+# Secrets / local auth
+openclaw.json.bak*
+identity/
+logs/
+subagents/
+completions/
+cron/
+devices/
+canvas/
+update-check.json
+*.log
+memory/*.sqlite
+workspace/.openclaw/
+workspace/.clawhub/
+workspace-browser/.openclaw/
+workspace-news/.openclaw/
+workspace-windows-ops/.openclaw/
+workspace-windows-ops/
+git-backup/
+browser/
+.env
+.env.*
+!.env.example
+
+# Runtime state / machine-local internals
+agents/
+exec-approvals.json
+workspace/.git.workspace.backup.*
+workspace/.git
+workspace-news/.git
+workspace-windows-ops/.git
+
+# Local-only / sensitive clutter
+**/*.token
+**/*.secret
+**/.cache/
+**/node_modules/
+
+# Legacy local dirs
+.openclaw/
+xiaoqing/
+
+# New structure
+tmp/
+projects/graphrag-mvp/env/
+*.pyc
+__pycache__/
+
+.openclaw/
+.venv/
+

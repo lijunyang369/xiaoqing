@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.13"
+  },
+  "auth": {
+    "profiles": {
+      "openai-codex:default": {
+        "provider": "openai-codex",
+        "mode": "oauth"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.4"
+      },
+      "workspace": "C:\\Users\\wei\\.openclaw\\workspace",
+      "compaction": {
+        "mode": "default"
+      },
+      "elevatedDefault": "full"
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "windows-ops",
+        "name": "windows-ops",
+        "workspace": "C:\\Users\\wei\\.openclaw\\workspace-windows-ops",
+        "agentDir": "C:\\Users\\wei\\.openclaw\\agents\\windows-ops\\agent",
+        "identity": {
+          "name": "青卫",
+          "theme": "Windows系统专职AI助手",
+          "emoji": "🛠️"
+        }
+      },
+      {
+        "id": "news-brief",
+        "name": "news-brief",
+        "workspace": "C:\\Users\\wei\\.openclaw\\workspace-news",
+        "identity": {
+          "name": "青闻",
+          "theme": "资讯智能体 / 新闻研判员",
+          "emoji": "📰"
+        }
+      },
+      {
+        "id": "browser-ops",
+        "name": "browser-ops",
+        "workspace": "C:\\Users\\wei\\.openclaw\\workspace-browser",
+        "identity": {
+          "name": "青览",
+          "theme": "浏览器专职智能体",
+          "emoji": "🌐"
+        },
+        "tools": {
+          "allow": ["browser"]
+        }
+      }
+    ]
+  },
+  "tools": {
+    "profile": "coding",
+    "elevated": {
+      "enabled": true,
+      "allowFrom": {
+        "webchat": ["id:openclaw-control-ui"]
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "lan",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789",
+        "https://your-ngrok-or-domain.example"
+      ]
+    },
+    "auth": {
+      "mode": "token",
+      "token": {
+        "source": "env",
+        "provider": "default",
+        "id": "OPENCLAW_GATEWAY_TOKEN"
+      }
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send"
+      ]
+    }
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "accounts": {
+        "default": {
+          "token": {
+            "source": "env",
+            "provider": "default",
+            "id": "DISCORD_BOT_TOKEN"
+          }
+        },
+        "qinglan": {
+          "token": {
+            "source": "env",
+            "provider": "default",
+            "id": "DISCORD_BOT_TOKEN_QINGLAN"
+          }
+        }
+      },
+      "dmPolicy": "pairing",
+      "allowFrom": ["1128130258026106991"],
+      "groupPolicy": "allowlist",
+      "guilds": {
+        "1128133439175012505": {
+          "requireMention": true,
+          "users": ["1128130258026106991"]
+        }
+      },
+      "threadBindings": {
+        "enabled": true,
+        "idleHours": 24,
+        "maxAgeHours": 0,
+        "spawnSubagentSessions": true
+      },
+      "actions": {
+        "reactions": true,
+        "messages": true,
+        "threads": true,
+        "pins": true,
+        "memberInfo": true,
+        "channelInfo": true
+      }
+    }
+  },
+  "bindings": [
+    {
+      "match": {
+        "channel": "discord",
+        "accountId": "default"
+      },
+      "agentId": "main"
+    },
+    {
+      "match": {
+        "channel": "discord",
+        "accountId": "qinglan"
+      },
+      "agentId": "browser-ops"
+    }
+  ]
+}
