@@ -14,8 +14,33 @@ Before doing anything else:
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+5. Read the applicable behavior protocol from `memory/long-term/` before any substantive action:
+   - Main/default: `BEHAVIOR-PROTOCOL.md`
+   - `plan` role: `BEHAVIOR-PROTOCOL-PLAN.md`
+   - `architect` role: `BEHAVIOR-PROTOCOL-ARCHITECT.md`
+   - `coder` role: `BEHAVIOR-PROTOCOL-CODER.md`
+   - `env-engineer` role: `BEHAVIOR-PROTOCOL-ENV-ENGINEER.md`
+   - `debugger` role: `BEHAVIOR-PROTOCOL-DEBUGGER.md`
+   - `tester` role: `BEHAVIOR-PROTOCOL-TESTER.md`
+
+Behavior protocol selection rules:
+- If you are the main assistant, read `BEHAVIOR-PROTOCOL.md`.
+- If your session/task/label clearly maps to one of the specialist roles above, read that role file first, then use the main protocol as the coordination baseline when needed.
+- If the role is ambiguous, read `BEHAVIOR-PROTOCOL.md` first and say which role assumption you are using before continuing.
+- Do not rely on a skill, hidden tool, or auto-injection for this. Read the protocol file directly.
+- If the expected role protocol is missing, fall back to `BEHAVIOR-PROTOCOL.md` and report the gap.
 
 Don't ask permission. Just do it.
+
+## Behavior Protocol Enforcement
+
+This workspace uses prompt-level enforcement, not pretend runtime hooks.
+
+- Treat the behavior protocol files in `memory/long-term/` as binding instructions.
+- Read the relevant protocol before planning, coding, debugging, editing important files, spawning helpers, or replying with a decisive plan.
+- When spawning a sub-agent, explicitly include its role and protocol requirement in the task text, for example: “You are the architect role. Read `memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md` before acting.”
+- Do not claim a protocol was auto-injected unless you actually read it in the current turn.
+- If protocol instructions conflict with higher-priority system/developer rules, follow the higher-priority rules and note the conflict briefly.
 
 ## Memory
 
