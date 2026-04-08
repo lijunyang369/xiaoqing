@@ -19,7 +19,9 @@
       "sessionType": "subagent",
       "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md",
       "labelHint": "architect - <task>",
-      "spawnTemplate": "architect"
+      "spawnTemplate": "architect",
+      "model": "openai-codex/gpt-5.4",
+      "thinking": "high"
     },
     "coder": {
       "sessionType": "subagent",
@@ -45,6 +47,10 @@
       "labelHint": "tester - <task>",
       "spawnTemplate": "tester"
     }
+  },
+  "spawnDefaults": {
+    "defaultModel": "deepseek/deepseek-chat",
+    "defaultThinking": "adaptive"
   },
   "maintenanceChecklist": [
     "Add or update the role entry here.",

@@ -5,6 +5,11 @@ Last updated: 2026-04-08
 本文件定义 `sessions_spawn` 的标准任务模板。
 当小青把任务委派给角色型子进程时，优先使用这些模板。
 
+默认策略：
+- 未单独指定时，子进程默认使用 `deepseek/deepseek-chat`
+- 默认推理级别视为 `adaptive`
+- **architect 例外**：显式使用 `openai-codex/gpt-5.4` + `high`
+
 ## 单一事实来源
 
 - 角色注册表：`config/agent-role-registry.json`
@@ -89,6 +94,15 @@ plan - <task>
 ```
 
 ### Architect
+
+**sessions_spawn 参数建议**
+```json
+{
+  "model": "openai-codex/gpt-5.4",
+  "thinking": "high"
+}
+```
+
 
 **label**
 ```text
@@ -280,6 +294,8 @@ tester - <task>
 ```text
 你是 architect 角色。
 先阅读 memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md 并遵循其中规则。
+
+本次模型要求：使用 openai-codex/gpt-5.4，thinking 设为 high。
 
 任务：<一句话说明要设计/评审什么>
 约束：只做架构、接口、技术权衡和审查，不接管实现。

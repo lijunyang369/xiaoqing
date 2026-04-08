@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-07T07:10:32.278Z",
+  "updatedAt": "2026-04-08T03:46:25.584Z",
   "entries": {
     "memory:memory/2026-03-24.md:1:9": {
       "key": "memory:memory/2026-03-24.md:1:9",
@@ -69,17 +69,19 @@
       "endLine": 12,
       "source": "memory",
       "snippet": "# 2026-04-07 - 用户新增稳定工作流偏好：参考 Cursor，把对话/执行区分为 Ask、Plan、Debug 三类。 - 用户明确认可 Plan 模式：先规划好，再生成 todo 跟踪，用来指导 agent 不发散。 - 已将 Ask / Plan / Debug 固化为默认工作协议，并补充默认切换规则：提问走 Ask，长任务走 Plan，异常排查走 Debug；若规划与排障混合，先 Debug 收敛边界，再切 Plan。 - 用户新增规则：做 Plan 时默认启用高推理模式，因为计划做得好，后续执行会事半功倍。 - 用户要求将 DeepSeek 模型与 OpenAI 模型都配置为可用，已更新配置支持双模型切换。 - 用户进一步要求加入 DeepSeek Reasoner 和其他 GPT 模型，已添加 DeepSeek-Reasoner、GPT-4-Turbo、GPT-4o、GPT-4o-mini 到模型列表。 - 用户询问记忆系统分层，已解释当前 4 层结构：长期记忆（MEMORY.md）、会话上下文、线程上下文、self-improving 学习层。 - 用户提议挂载 GraphRAG 作为知识库增强层，讨论后确认 GraphRAG 应作为“检索与推理增强层”接入，不替代现有记忆层。 - 用户认可 Cursor 的 Ask/Plan/Debug 模式，已固化为默认工作协议，并补充切换规则。 - 用户要求 Plan 模式默认启用高推理模式，已记入默认规则。",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
-      "totalScore": 0.684709559590428,
+      "totalScore": 1.3458282881284027,
       "maxScore": 0.684709559590428,
       "firstRecalledAt": "2026-04-07T07:10:32.278Z",
-      "lastRecalledAt": "2026-04-07T07:10:32.278Z",
+      "lastRecalledAt": "2026-04-08T03:46:25.584Z",
       "queryHashes": [
-        "6836bbb5abf3"
+        "6836bbb5abf3",
+        "d6ed639d3379"
       ],
       "recallDays": [
-        "2026-04-07"
+        "2026-04-07",
+        "2026-04-08"
       ],
       "conceptTags": [
         "gpt",
@@ -120,6 +122,36 @@
         "deepseek-chat",
         "deepseek-reasoner",
         "openai-gpt-5.4"
+      ]
+    },
+    "memory:memory/2026-03-19.md:11:15": {
+      "key": "memory:memory/2026-03-19.md:11:15",
+      "path": "memory/2026-03-19.md",
+      "startLine": 11,
+      "endLine": 15,
+      "source": "memory",
+      "snippet": "- 用户新增状态汇报触发条件：不是每次 start，而是每次 gateway restart 之后，应主动汇报当前状态与变更结果。 - 任务状态现统一维护在 `workspace/TASKS.md`，后续需持续更新，方便随时查看当前进度、阻塞点与下一步。 - GitHub/浏览器任务当前关键根因：OpenClaw 官方 browser 能力存在，`openclaw` profile 可识别且已成功拉起 Chrome；浏览器服务端口 18791、chrome-relay 18792、CDP 18800 均可监听。当前阻塞点已收敛为“启动后接管/控制链不稳”，不是“Chrome 未启动”。 - Auto-compaction 任务当前归类为“待验证”：官方支持且配置已从 `safeguard` 切为 `default`，但尚未有可靠证据证明在长会话中已正常无感生效；后续再次触发上下文逼近上限时应优先复查该点。",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.6657879022761856,
+      "maxScore": 0.6657879022761856,
+      "firstRecalledAt": "2026-04-08T03:46:25.584Z",
+      "lastRecalledAt": "2026-04-08T03:46:25.584Z",
+      "queryHashes": [
+        "d6ed639d3379"
+      ],
+      "recallDays": [
+        "2026-04-08"
+      ],
+      "conceptTags": [
+        "gateway",
+        "workspace/tasks.md",
+        "github/浏览器任务当前关键根因",
+        "chrome-relay",
+        "启动后接管/控制链不稳",
+        "auto-compaction",
+        "用户",
+        "新增"
       ]
     }
   }

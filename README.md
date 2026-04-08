@@ -15,7 +15,6 @@
 - `config/` - 配置文件模板
 - `docs/` - 文档
 - `tmp/` - 临时文件（不同步）
-- `old-workspaces/` - 旧工作区备份（不同步）
 
 ## 同步策略
 
@@ -29,8 +28,6 @@
 
 不同步：
 - `tmp/`
-- `old-workspaces/`
-- `projects/graphrag-mvp/env/`（虚拟环境）
 - 其他设备特定文件
 
 ## 多设备使用
