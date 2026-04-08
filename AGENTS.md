@@ -42,6 +42,7 @@ This workspace uses prompt-level enforcement, not pretend runtime hooks.
 - Use `config/agent-role-registry.json` as the role registry and `docs/spawn-task-templates.md` as the standard spawn template reference.
 - For standard roles, follow the matching template from `docs/spawn-task-templates.md` instead of improvising a vague spawn prompt.
 - Prefer Chinese task templates by default, while keeping role names, file paths, and protocol filenames exact.
+- Prefer the short template variant for high-frequency, low-ambiguity delegation to reduce token cost; use the full template when scope, risk, or context needs more explicit control.
 - Do not claim a protocol was auto-injected unless you actually read it in the current turn.
 - If protocol instructions conflict with higher-priority system/developer rules, follow the higher-priority rules and note the conflict briefly.
 
