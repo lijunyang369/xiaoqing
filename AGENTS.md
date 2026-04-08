@@ -39,8 +39,22 @@ This workspace uses prompt-level enforcement, not pretend runtime hooks.
 - Treat the behavior protocol files in `memory/long-term/` as binding instructions.
 - Read the relevant protocol before planning, coding, debugging, editing important files, spawning helpers, or replying with a decisive plan.
 - When spawning a sub-agent, explicitly include its role and protocol requirement in the task text, for example: “You are the architect role. Read `memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md` before acting.”
+- Use `config/agent-role-registry.json` as the role registry and `docs/spawn-task-templates.md` as the standard spawn template reference.
+- For standard roles, follow the matching template from `docs/spawn-task-templates.md` instead of improvising a vague spawn prompt.
 - Do not claim a protocol was auto-injected unless you actually read it in the current turn.
 - If protocol instructions conflict with higher-priority system/developer rules, follow the higher-priority rules and note the conflict briefly.
+
+## Agent Role Maintenance
+
+When a new role, specialist sub-agent, or standard delegation path is introduced, update the architecture in this order:
+
+1. Add the role to `config/agent-role-registry.json`
+2. Create or update the corresponding `memory/long-term/BEHAVIOR-PROTOCOL-<ROLE>.md`
+3. Add a concrete `sessions_spawn` template to `docs/spawn-task-templates.md`
+4. Update the Session Startup section above if the new role becomes a standard role
+5. Use the new role name explicitly in future spawn labels and task text
+
+Prefer maintaining one registry and one template file over scattering role logic across multiple docs.
 
 ## Memory
 

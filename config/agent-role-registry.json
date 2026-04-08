@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-04-08",
+  "defaultRole": "main",
+  "roles": {
+    "main": {
+      "sessionType": "main",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL.md",
+      "labelHint": "main",
+      "spawnTemplate": "main-direct"
+    },
+    "plan": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-PLAN.md",
+      "labelHint": "plan - <task>",
+      "spawnTemplate": "plan"
+    },
+    "architect": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md",
+      "labelHint": "architect - <task>",
+      "spawnTemplate": "architect"
+    },
+    "coder": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-CODER.md",
+      "labelHint": "coder - <task>",
+      "spawnTemplate": "coder"
+    },
+    "env-engineer": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md",
+      "labelHint": "env-engineer - <task>",
+      "spawnTemplate": "env-engineer"
+    },
+    "debugger": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-DEBUGGER.md",
+      "labelHint": "debugger - <task>",
+      "spawnTemplate": "debugger"
+    },
+    "tester": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-TESTER.md",
+      "labelHint": "tester - <task>",
+      "spawnTemplate": "tester"
+    }
+  },
+  "maintenanceChecklist": [
+    "Add or update the role entry here.",
+    "Create or update the corresponding BEHAVIOR-PROTOCOL-<ROLE>.md file when needed.",
+    "Update AGENTS.md session startup and maintenance rules if the role becomes standard.",
+    "Update docs/spawn-task-templates.md with a concrete spawn template.",
+    "Use the new role name explicitly in sessions_spawn task text and label."
+  ]
+}
