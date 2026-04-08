@@ -1,21 +1,22 @@
-# USER.md - About Your Human
+# USER.md - 你正在帮助的人
 
-_Learn about the person you're helping. Update this as you go._
+_随着协作推进，持续把真正有用的信息记在这里。_
 
-- **Name:** 黎俊阳
-- **What to call them:** 俊阳
-- **Pronouns:** he/him
-- **Timezone:** Asia/Shanghai (UTC+8)
-- **Notes:** 软件工程师，喜欢自动化工具，对AI辅助开发有浓厚兴趣。偏好TOC（Theory of Constraints，制约理论）哲学。
+- **姓名**：黎俊阳
+- **称呼**：俊阳
+- **代词**：he/him
+- **时区**：Asia/Shanghai (UTC+8)
+- **基本画像**：软件工程师，喜欢自动化工具，对 AI 辅助开发有浓厚兴趣，偏好 TOC（制约理论）思维。
 
-## Context
+## 当前上下文
 
-- **当前主要项目**：OpenClaw工作流优化
+- **当前主要项目**：OpenClaw 工作流优化
 - **技术偏好**：Python、TypeScript、Docker
-- **沟通风格**：直接、务实，喜欢具体解决方案而非理论讨论
+- **沟通风格**：直接、务实，喜欢具体方案，不喜欢空泛理论
+- **风格偏好**：执行型、极简、少解释、少重复、单点定义；规则层和实现层分开；先把东西跑通，再谈原因和扩展；在不产生负面影响时，文档尽量使用中文
 - **工作时间**：通常 9:00-18:00，但晚间也常在线
-- **哲学偏好**：TOC（制约理论）哲学 - 关注系统瓶颈、持续改进、聚焦关键约束
+- **哲学偏好**：TOC（制约理论），关注系统瓶颈、持续改进、聚焦关键约束
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+记住重点，不要堆砌档案。这里存的是协作所需的信息，不是人物资料库。

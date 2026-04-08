@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-08T03:46:25.584Z",
+  "updatedAt": "2026-04-08T17:24:03.816Z",
   "entries": {
     "memory:memory/2026-03-24.md:1:9": {
       "key": "memory:memory/2026-03-24.md:1:9",
@@ -152,6 +152,66 @@
         "auto-compaction",
         "用户",
         "新增"
+      ]
+    },
+    "memory:memory/2026-04-08.md:54:79": {
+      "key": "memory:memory/2026-04-08.md:54:79",
+      "path": "memory/2026-04-08.md",
+      "startLine": 54,
+      "endLine": 79,
+      "source": "memory",
+      "snippet": "用户（俊阳）明确协作系统目标应为：通过“小青 + 俊阳 + 子进程”的协作，高质量按时完成尽量多的任务；要求用 TOC 思维构建一个持续优化系统。 关键纠偏： - 先定义系统目标，再识别当前制约 - 要站在全局看问题，单个任务可交给子进程 - 优先给出最佳实践方案和关键决策点，再考虑其他可行方案 - TOC 不是泛化优先级，而是围绕当前制约最大化有效产出 已完成： - 并行分发 architect 和 plan 两个子进程，分别产出系统蓝图与运行节奏 - 落地创建 `docs/TOC-COLLABORATION-SYSTEM.md` - 落地创建 `docs/TOC-TEMPLATES.md` - 创建 `TASK-PROGRESS.md` 作为最小控制面 当前系统假设： - 当前主制约优先假设为“主链路决策吞吐（俊阳 ↔ 小青）” - 表现为需求澄清、优先级裁决、完成定义与决策包质量不足 v1 运行规则： - 每个周期只认 1 个主制约 - 总 WIP <= 3 - 所有任务先补齐验收标准再进实现 - 每日启动 / 每日收尾 / 每周复盘按模板运行 教训： - 如果没有先把问题收敛成系统目标、当前制约和决策点，就容易过早陷入执行细节",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8396087231002103,
+      "maxScore": 0.8396087231002103,
+      "firstRecalledAt": "2026-04-08T17:24:03.816Z",
+      "lastRecalledAt": "2026-04-08T17:24:03.816Z",
+      "queryHashes": [
+        "187a0d7536b1"
+      ],
+      "recallDays": [
+        "2026-04-09"
+      ],
+      "conceptTags": [
+        "docs/toc-collaboration-system.md",
+        "docs/toc-templates.md",
+        "task-progress.md",
+        "用户",
+        "明确",
+        "协作",
+        "系统",
+        "目标"
+      ]
+    },
+    "memory:memory/2026-04-08.md:29:59": {
+      "key": "memory:memory/2026-04-08.md:29:59",
+      "path": "memory/2026-04-08.md",
+      "startLine": 29,
+      "endLine": 59,
+      "source": "memory",
+      "snippet": "- 更新了 `AGENTS.md` 的 \"Agent Role Maintenance\" 部分，说明 architect 角色使用特殊模型策略 待执行： - 停止 OpenClaw gateway 服务 - 清空 `~/.openclaw/agents/*/sessions/` 目录下的所有会话存档文件 - 重启 gateway 使新配置生效 关键决策： - 采用分层策略：全局默认用 DeepSeek-chat adaptive，architect 角色显式覆盖为 gpt-5.4 high - 通过角色注册表和 spawn 模板实现模型覆盖，而非全局配置 - 使用 `gio trash` 而非 `rm` 清理会话文件，确保可恢复性 - 清理后重启 gateway 确保新会话按新配置启动 技术细节： - OpenClaw 配置中的 `agents.defaults.thinking` 键无效，已删除 - 模型覆盖通过 `sessions_spawn` 的 `model` 和 `thinking` 参数实现 - 会话清理需要停止 gateway 以避免文件锁冲突 --- ## 2026-04-08 16:55 (Asia/Shanghai) ### 建立 TOC 协作系统 v1 背景： 用户（俊阳）明确协作系统目标应为：通过“小青 + 俊阳 + 子进程”的协作，高质量按时完成尽量多的任务；要求用 TOC 思维构建一个持续优化系统。 关键纠偏： - 先定义系统目标，再识别当前制约 - 要站在全局看问题，单个任务可交给子进程 - 优先给出最佳实践方案和关键决策点，再考虑",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8085818514297882,
+      "maxScore": 0.8085818514297882,
+      "firstRecalledAt": "2026-04-08T17:24:03.816Z",
+      "lastRecalledAt": "2026-04-08T17:24:03.816Z",
+      "queryHashes": [
+        "187a0d7536b1"
+      ],
+      "recallDays": [
+        "2026-04-09"
+      ],
+      "conceptTags": [
+        "gateway",
+        "gpt",
+        "agents.md",
+        "openclaw/agents",
+        "deepseek-chat",
+        "gpt-5.4",
+        "agents.defaults.thinking",
+        "sessions-spawn"
       ]
     }
   }

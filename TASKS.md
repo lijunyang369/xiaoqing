@@ -37,25 +37,19 @@
 
 ## 等待 / 未完成任务
 
-### LOGIC-001 检查并优化小青的任务分配逻辑
-- 类型：审查
-- 所属进程：architect
-- 状态：Executing
-- 优先级：P1
-- 目标结果：由architect检查小青的任务分配逻辑，识别系统性问题并提供架构优化方案
-- 阻塞项：无
-- 下一步：等待architect完成审查并提供优化方案
-
-### BOOT-OPT-001 优化boot逻辑和回复模板
-- 类型：优化
-- 所属进程：architect
-- 状态：Executing
-- 优先级：P1
-- 目标结果：让architect优化Gateway中断任务恢复逻辑，并设计标准化的回复模板
-- 阻塞项：无
-- 下一步：等待architect完成优化方案设计
+- 无
 
 ## 最近完成
+
+### BOOT-OPT-001 优化boot逻辑和回复模板
+- 所属进程：architect
+- 状态：Done
+- 结果：完成 BOOT.md 执行型压缩、boot 回复模板定型、恢复脚本迁移到 workspace 并拆分为 shell + Python 实现
+
+### LOGIC-001 检查并优化小青的任务分配逻辑
+- 所属进程：architect
+- 状态：Done
+- 结果：完成任务分配逻辑审查，明确 tasks/*.yaml 为权威源、TASKS.md 为派生摘要
 
 ### AVATAR-001 修复 avatar 的展示异常
 - 所属进程：coder
@@ -91,8 +85,8 @@
 - 未完成：无
 
 ### architect
-- 当前聚焦：BOOT-OPT-001
-- 进行中：BOOT-OPT-001
+- 当前聚焦：无
+- 进行中：无
 - 未完成：无
 
 ### coder

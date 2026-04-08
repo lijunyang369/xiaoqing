@@ -5,7 +5,7 @@ value: high
 deadline: 2026-04-09T12:00:00+08:00
 priorityScore: 0
 
-status: Executing
+status: Done
 stageOwner: architect
 assignedRole: architect
 
@@ -44,9 +44,10 @@ updatedAt: 2026-04-08T21:12:00Z
 releasedAt: null
 startedAt: 2026-04-08T21:26:00Z
 verifiedAt: null
-doneAt: null
+doneAt: 2026-04-09T00:39:00+08:00
 
 notes:
   - "用户明确指出任务分配逻辑有问题"
   - "需要architect进行专业架构审查"
   - "涉及TOC协作系统的核心逻辑"
+  - "已完成：明确 tasks/*.yaml 为权威源，TASKS.md 为派生摘要，路由逻辑需显式化"
