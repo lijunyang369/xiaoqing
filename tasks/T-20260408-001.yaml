@@ -1,0 +1,48 @@
+id: T-20260408-001
+title: 为TOC协作系统创建数据示例文件
+goal: 提供示例TaskCard用于算法验证和系统演示
+value: high
+deadline: 2026-04-10T18:00:00+08:00
+priorityScore: 95
+
+status: Executing
+stageOwner: xiaoqing
+assignedRole: architect
+
+definitionOfDone:
+  - 创建5个示例TaskCard文件
+  - 包含不同状态和属性
+  - 时间戳设置合理，便于计算等待时间
+  - 记录在memory/2026-04-08.md中
+
+inputs:
+  - TOC系统设计文档
+  - TaskCard模板
+outputs:
+  - tasks/*.yaml文件
+  - 状态计算验证结果
+
+dependencies: []
+blockers: []
+
+risks:
+  - 示例数据可能过于简单
+  - 时间戳可能不够真实
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: high
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: 2026-04-08T09:00:00+08:00
+updatedAt: 2026-04-08T14:30:00+08:00
+releasedAt: 2026-04-08T10:15:00+08:00
+startedAt: 2026-04-08T10:20:00+08:00
+verifiedAt: null
+doneAt: null
+
+notes:
+  - 这是一个示例TaskCard，用于演示TOC系统如何工作
+  - 当前状态为Executing，已在architect角色中处理2.1小时

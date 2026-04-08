@@ -1,0 +1,22 @@
+id: E-YYYYMMDD-001
+name: ""
+hypothesis: ""
+linkedConstraintId: ""
+
+change:
+  - ""
+
+successMetrics:
+  - ""
+
+guardrails:
+  - ""
+
+startAt: null
+reviewAt: null
+status: Planned # Planned | Running | Succeeded | Failed | Cancelled
+result: null
+owner: xiaoqing
+
+notes:
+  - ""

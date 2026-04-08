@@ -1,0 +1,41 @@
+activeExperimentIds: []
+constraintType: decision
+createdAt: 2026-04-08 17:40:00+08:00
+elevationOptions:
+- 建立标准 DecisionPacket
+- 引入默认优先级规则
+- 自动摘要待决策问题
+evidence:
+  avgWaitHours: 0.0
+  interruptFrequencyPerDay: 0
+  queueLength: 0
+  reworkRate: 0.0
+exploitPolicy:
+- 决策事项统一打包
+- 非关键事项不打断俊阳
+- 每个任务进入 Ready 前必须具备 DoD
+id: C-20260408-001
+name: 主链路决策吞吐
+notes:
+- 初始约束记录，需要在实际运行中验证和更新
+- 2026-04-08 17:43 心跳检查：In Progress=2，WaitingDecision=0，Verifying=0，未超 WIP 上限，当前主制约暂不变
+- 2026-04-08 18:15 心跳检查：Executing=1，WaitingDecision=1，Verifying=1，Blocked=1，Ready=1
+- 发现WaitingDecision任务T-20260407-001已等待21小时，决策已超时(18:00)
+- 返工率33%表明需求澄清质量有待提高
+- 证据支持主制约为决策吞吐
+- 2026-04-08 20:43 日终复盘：决策队列已清空，压力大幅下降
+- 返工率从50%降至0%，质量门改进有效
+- Ready队列有2个任务等待释放执行
+- 验证环节可能成为新制约，需要监控
+owner: xiaoqing
+reviewAt: 2026-04-09 18:00:00+08:00
+scope: 小青 <-> 俊阳
+status: Suspected
+subordinationPolicy:
+- coder 不抢跑未澄清任务
+- tester 提前暴露验收差异
+- architect 输出选项而非开放问题
+symptoms:
+- 无明显症状，系统运行平稳
+systemImpact: high
+updatedAt: '2026-04-08T20:44:01.602307'

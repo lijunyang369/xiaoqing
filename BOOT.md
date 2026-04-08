@@ -124,6 +124,45 @@ done
 2. 从检查点恢复状态
 3. 继续执行
 
+### 3.4 恢复完成后的待办显示
+
+为了避免 Gateway 恢复后再次扫描 `tasks/*.yaml`，恢复阶段完成后应直接读取 `TASKS.md`，生成一张简洁待办卡片。
+
+**原则**：
+- 恢复完成后，`TASKS.md` 是默认待办入口
+- 恢复提示和待办速览合并输出，避免二次扫描
+- 若没有中断任务，也直接显示当前待办，不再执行任务目录扫描
+- 只有当 `TASKS.md` 缺失、明显过期或与恢复结果冲突时，才回退读取单个 TaskCard
+- **每次 boot check 完成后，都必须输出一条用户可见的 boot 回复，不允许因为“未发现中断任务”而静默结束**
+- **boot 回复必须只输出模板本体，不追加解释、总结、说明文字或额外分析**
+- **如果恢复检查已成功执行，即使结果为“未发现需恢复任务”，也必须返回 boot 回复模板，而不是 `NO_REPLY`**
+
+**建议伪代码**：
+```javascript
+function showTodoAfterRecovery(recoveryResult) {
+  const todoContext = loadTodoContextFromTASKS();
+
+  return renderTodoCard({
+    recoveryStatus: recoveryResult.recoveredCount > 0
+      ? '检测到中断任务并已恢复'
+      : '未发现中断任务',
+    focus: todoContext.focus,
+    active: todoContext.active,
+    pending: todoContext.pending,
+  });
+}
+```
+
+**建议输出模板**：
+```md
+待办恢复卡片
+- 恢复状态：<检测到中断任务并已恢复 / 未发现中断任务>
+- 当前聚焦：<TASK-ID> / <任务名> / <状态>
+- 进行中：<0-3 条>
+- 等待 / 未完成：<0-3 条或无>
+- 下一步：<一句动作>
+```
+
 ## 4. 实施步骤
 
 ### 阶段 1：信息收集（当前）

@@ -1,0 +1,72 @@
+{
+  "snapshot_id": "metrics-2026-04-07T16:00:00",
+  "timestamp": "2026-04-07T16:00:00+08:00",
+  "calculated_by": "xiaoqing",
+  
+  "queues": {
+    "waiting_decision": 2,
+    "verifying": 1,
+    "blocked": 1,
+    "executing": 1,
+    "ready": 2
+  },
+  
+  "wait_times": {
+    "waiting_decision": 22.5,
+    "verifying": 5.0,
+    "blocked": 18.0
+  },
+  
+  "rework_rate": 0.30,
+  "interrupt_frequency": 10,
+  
+  "main_constraint": "decision",
+  "constraint_score": 0.88,
+  
+  "constraint_details": {
+    "decision": {
+      "score": 0.88,
+      "queue": 2,
+      "avg_wait_hours": 22.5,
+      "rework_contribution": 0.06,
+      "interrupt_contribution": 0.10
+    },
+    "verification": {
+      "score": 0.45,
+      "queue": 1,
+      "avg_wait_hours": 5.0,
+      "rework_contribution": 0.09,
+      "interrupt_contribution": 0.0
+    },
+    "environment": {
+      "score": 0.52,
+      "queue": 1,
+      "avg_wait_hours": 18.0,
+      "rework_contribution": 0.0,
+      "interrupt_contribution": 0.0
+    }
+  },
+  
+  "wip_status": {
+    "executing": 1,
+    "limit": 3,
+    "within_limit": true
+  },
+  
+  "trends": {
+    "waiting_decision": "increasing",
+    "verifying": "new",
+    "blocked": "new",
+    "rework_rate": "increasing"
+  },
+  
+  "recommendations": [
+    "WaitingDecision队列增长到2个，平均等待22.5小时，决策吞吐是明显制约",
+    "Verifying队列出现1个任务，等待5小时，验证可能成为下一个制约",
+    "Blocked队列出现1个任务，等待18小时，环境问题开始显现",
+    "返工率上升到30%，需要关注质量门",
+    "中断频率10次/天，需要保护主链路时间块"
+  ],
+  
+  "notes": "决策制约更加明显，验证和环境问题开始出现，系统需要多环节优化"
+}

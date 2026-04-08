@@ -1,0 +1,39 @@
+id: T-YYYYMMDD-001
+title: ""
+goal: ""
+value: high # high | medium | low
+deadline: null
+priorityScore: 0
+
+status: Captured # Captured | Clarified | Ready | Released | Executing | WaitingDecision | Blocked | Verifying | Rework | Done
+stageOwner: xiaoqing
+assignedRole: null # plan | architect | coder | env-engineer | debugger | tester | null
+
+definitionOfDone:
+  - ""
+
+inputs: []
+outputs: []
+
+dependencies: []
+blockers: []
+
+risks:
+  - ""
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: medium # high | medium | low
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: null
+updatedAt: null
+releasedAt: null
+startedAt: null
+verifiedAt: null
+doneAt: null
+
+notes:
+  - ""

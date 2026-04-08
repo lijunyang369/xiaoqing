@@ -46,6 +46,14 @@
       "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-TESTER.md",
       "labelHint": "tester - <task>",
       "spawnTemplate": "tester"
+    },
+    "toc-monitor": {
+      "sessionType": "subagent",
+      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-TOC-MONITOR.md",
+      "labelHint": "toc-monitor - <check_type>",
+      "spawnTemplate": "toc-monitor",
+      "model": "deepseek/deepseek-chat",
+      "thinking": "adaptive"
     }
   },
   "spawnDefaults": {

@@ -1,0 +1,29 @@
+id: D-YYYYMMDD-001
+topic: ""
+taskIds: []
+
+decisionType: "" # priority-policy | scope | deadline | architecture | resource | acceptance | other
+requiredBy: null
+
+background: ""
+
+options:
+  - name: ""
+    pros:
+      - ""
+    cons:
+      - ""
+
+recommendation:
+  option: ""
+  reason: ""
+
+impactIfNoDecision: ""
+
+requestedBy: xiaoqing
+status: Pending # Pending | Resolved | Expired | Cancelled
+resolvedBy: null
+resolvedAt: null
+
+notes:
+  - ""

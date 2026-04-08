@@ -1,0 +1,35 @@
+id: C-YYYYMMDD-001
+name: ""
+scope: "" # 例如: 小青 <-> 俊阳
+status: Suspected # Suspected | Validated | Exploiting | Subordinating | Elevating | Reassessing | Archived
+
+symptoms:
+  - ""
+
+evidence:
+  queueLength: 0
+  avgWaitHours: 0
+  reworkRate: 0.0
+  interruptFrequencyPerDay: 0
+
+constraintType: decision # decision | verification | environment | implementation | planning | other
+systemImpact: high # high | medium | low
+
+exploitPolicy:
+  - ""
+
+subordinationPolicy:
+  - ""
+
+elevationOptions:
+  - ""
+
+activeExperimentIds: []
+
+reviewAt: null
+owner: xiaoqing
+createdAt: null
+updatedAt: null
+
+notes:
+  - ""

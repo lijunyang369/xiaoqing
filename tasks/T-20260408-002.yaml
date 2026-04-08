@@ -1,0 +1,51 @@
+id: T-20260408-002
+title: 创建周复盘模板和示例
+goal: 为每周TOC复盘提供结构化模板
+value: medium
+deadline: 2026-04-12T18:00:00+08:00
+priorityScore: 80
+
+status: Ready
+stageOwner: xiaoqing
+assignedRole: plan
+
+definitionOfDone:
+  - 创建周复盘模板文档
+  - 提供上周数据示例
+  - 展示复盘五步法应用
+  - 包含下周策略建议模板
+
+inputs:
+  - 本周TaskCard数据
+  - 当前ConstraintRecord
+  - 历史指标快照
+outputs:
+  - 周复盘模板文件
+  - 示例数据文件
+
+dependencies:
+  - T-20260408-001
+blockers: []
+
+risks:
+  - 模板可能过于僵化
+  - 示例数据可能不够典型
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: medium
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: 2026-04-08T11:00:00+08:00
+updatedAt: 2026-04-08T16:00:00+08:00
+releasedAt: null
+startedAt: null
+verifiedAt: null
+doneAt: null
+
+notes:
+  - 任务已澄清但尚未释放
+  - 等待WIP限制（当前Executing=1，未超限）
+  - 可以随时被小青释放给plan角色

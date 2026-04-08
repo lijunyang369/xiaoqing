@@ -1,0 +1,49 @@
+id: T-20260407-002
+title: 实现TaskCard状态计算脚本
+goal: 完成toc-state-check.py脚本的开发和测试
+value: high
+deadline: 2026-04-08T17:00:00+08:00
+priorityScore: 92
+
+status: Verifying
+stageOwner: tester
+assignedRole: coder
+
+definitionOfDone:
+  - 脚本能正确加载TaskCard文件
+  - 计算队列长度、平均等待时间、返工率
+  - 识别主制约算法工作正常
+  - 保存ConstraintRecord到文件
+
+inputs:
+  - TaskCard模板
+  - 状态计算算法设计
+outputs:
+  - toc-state-check.py脚本
+  - 测试报告
+
+dependencies: []
+blockers: []
+
+risks:
+  - 算法可能过于简化
+  - 数据格式可能不兼容
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: medium
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: 2026-04-07T09:00:00+08:00
+updatedAt: 2026-04-08T15:30:00+08:00
+releasedAt: 2026-04-07T11:00:00+08:00
+startedAt: 2026-04-07T11:05:00+08:00
+verifiedAt: 2026-04-08T16:00:00+08:00
+doneAt: null
+
+notes:
+  - 这个任务已经在Verifying状态等待了1.5小时
+  - 如果验证吞吐是制约，这类任务会积压
+  - 已完成开发，等待tester验证

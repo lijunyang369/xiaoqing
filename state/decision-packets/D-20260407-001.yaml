@@ -1,0 +1,54 @@
+id: D-20260407-001
+topic: 是否将WIP限制从3改为4
+taskIds:
+  - T-20260407-001
+
+decisionType: priority-policy
+requiredBy: 2026-04-08T18:00:00+08:00
+
+background: 当前Executing队列通常只有1-2个任务，但团队反馈有时感觉限制过紧。同时，Verifying队列有时积压，但这不是WIP限制的直接问题。
+
+options:
+  - name: 保持WIP=3
+    pros:
+      - 保持库存控制，防止任务积压
+      - 减少上下文切换，提高专注度
+      - 符合当前主制约（决策吞吐）的保护策略
+    cons:
+      - 可能造成局部闲置
+      - 团队可能感觉限制过紧
+  - name: 调整为WIP=4
+    pros:
+      - 提供更多灵活性
+      - 可能略微提高吞吐
+      - 团队满意度可能提高
+    cons:
+      - 可能增加库存和切换成本
+      - 如果主制约未变，可能降低整体效率
+  - name: 动态WIP（2-4根据队列调整）
+    pros:
+      - 自适应系统状态
+      - 平衡控制和灵活性
+    cons:
+      - 增加管理复杂性
+      - 可能造成困惑
+
+recommendation:
+  option: 保持WIP=3
+  reason: |
+    1. 当前主制约仍是决策吞吐，不是实现吞吐
+    2. WIP限制的核心是保护主制约，不是最大化局部忙碌
+    3. 当前Executing平均只有1.5个任务，远未达到限制
+    4. 如果放松WIP，可能让更多任务进入系统，增加决策负担
+
+impactIfNoDecision: WIP限制保持当前值，团队可能继续反馈限制过紧，但系统稳定性更有保障。
+
+requestedBy: xiaoqing
+status: Resolved
+resolvedBy: 俊阳
+resolvedAt: 2026-04-08T15:30:00+08:00
+
+notes:
+  - 这是一个示例DecisionPacket，展示了如何结构化需要俊阳决策的事项
+  - 决策已经完成，结果为保持WIP=3
+  - 体现了TOC原则：保护当前主制约（决策吞吐）比局部优化更重要

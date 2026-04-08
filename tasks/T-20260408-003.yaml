@@ -1,0 +1,52 @@
+id: T-20260408-003
+title: 优化待办任务查看流程
+goal: 将高频的待办任务查看动作从文件扫描优化为内存加载
+value: high
+deadline: 2026-04-09T12:00:00+08:00
+priorityScore: 90
+
+status: Executing
+stageOwner: architect
+assignedRole: architect
+
+definitionOfDone:
+  - 修改AGENTS.md，在Session Startup部分添加待办任务加载逻辑
+  - 实现中断任务恢复机制后自动显示当前待办
+  - 确保待办信息简洁高效，不重复扫描文件
+  - 更新相关文档说明新流程
+
+inputs:
+  - 当前低效的待办查看流程
+  - AGENTS.md文件
+  - TOC系统设计
+outputs:
+  - 更新的AGENTS.md
+  - 优化的待办显示逻辑
+  - 用户确认流程改进有效
+
+dependencies: []
+blockers: []
+
+risks:
+  - 过度优化可能导致信息不完整
+  - 内存加载可能不及时更新
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: high
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: 2026-04-08T18:17:00+08:00
+updatedAt: 2026-04-08T18:17:00+08:00
+releasedAt: 2026-04-08T18:22:00+08:00
+startedAt: 2026-04-08T18:22:30+08:00
+verifiedAt: null
+doneAt: null
+
+notes:
+  - 用户反馈当前待办查看流程太低效且耗token
+  - 这是一个高频动作，需要优化为内存加载
+  - 应该在BOOT.md中断任务恢复机制后自动显示当前待办
+  - 如果小青没有中断任务，就直接告诉用户当前待办

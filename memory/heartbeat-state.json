@@ -4,8 +4,9 @@
     "calendar": null,
     "weather": 1775636685,
     "mentions": null,
-    "taskProgress": 1703275200,
-    "taskReview": 1703275380
+    "taskProgress": 1775663460,
+    "taskReview": 1775641380,
+    "tocLightCheck": 1775664720
   },
-  "lastHeartbeat": "2026-04-08T08:22:00Z"
+  "lastHeartbeat": "2026-04-08T13:12:00Z"
 }
