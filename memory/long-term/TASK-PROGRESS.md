@@ -1,14 +1,13 @@
 # 任务进度索引
 
-最后更新：2026-04-07
+最后更新：2026-04-08
 
 ## 进度概览
 
 | 任务 ID | 任务名称 | 状态 | 负责人（子进程） | 进度% | 下次更新时间 |
 |---------|----------|------|------------------|-------|--------------|
-| GRAPH-001 | GraphRAG MVP 开发 | 进行中 | plan, architect, coder, env-engineer, debugger | 30 | 2026-04-08 |
-| SYNC-001 | OpenClaw 多设备同步 | 进行中 | 小青（主进程） | 70 | 2026-04-07 |
-| BROWSER-001 | 浏览器链路稳定性 | 部分完成 | 青览（browser-ops） | 60 | 2026-04-08 |
+| GRAPH-001 | GraphRAG MVP 开发 | 进行中 | plan, architect, coder, env-engineer, debugger | 30 | 2026-04-09 |
+| SYNC-001 | OpenClaw 多设备同步 | 进行中 | 小青（主进程） | 70 | 2026-04-08 |
 | CONFIG-001 | 模型配置更新 | 已完成 | 小青 | 100 | - |
 | WORKFLOW-001 | 工作流协议固化 | 已完成 | 小青 | 100 | - |
 
@@ -63,40 +62,26 @@
 - 完成 Git 推送
 - 验证新设备克隆流程
 
-### BROWSER-001: 浏览器链路稳定性
-**目标**：稳定 `chrome-relay` 远程 CDP 链路，支持需要真实浏览器态的任务。
-
-**子任务**：
-1. ✅ 确定稳定端点（`http://172.31.208.1:9223`）
-2. ⚠️ 验证 Upwork 等网站访问（被 Cloudflare 风控）
-3. ⏳ 制定风控绕过策略
-
-**责任分配**：
-- **青览**（browser-ops）：浏览器操作专家
-
-**当前进度**：
-- 端点已验证，但部分网站仍被风控
-- 策略：公开页用 WSL 自管浏览器，真实浏览器态用 `chrome-relay`，风控页切人工
-
-**下一步**：
-- 继续验证其他网站
-- 优化风控策略
-
 ### CONFIG-001: 模型配置更新
 **目标**：更新 OpenClaw 模型配置，支持多模型混合使用。
 
 **状态**：已完成
-- 默认模型：DeepSeek-Chat
-- 备选模型：DeepSeek-Reasoner, OpenAI-GPT-5.4, GPT-4o, GPT-4o-mini, GPT-4-Turbo
-- 已删除 Gemini 模型
+- 默认模型：OpenAI-GPT-5.4
+- 默认推理：high
+- 备选模型：DeepSeek-Reasoner, DeepSeek-Chat, GPT-4o, GPT-4o-mini, GPT-4-Turbo
+- 已完成主配置统一，默认会话与全局 defaults 对齐
 
 ### WORKFLOW-001: 工作流协议固化
-**目标**：将 Ask/Plan/Debug 固化为默认工作协议。
+**目标**：将 Ask/Plan/Debug 固化为默认工作协议，并把行为协议约束迁移到真正生效的 prompt 层。
 
 **状态**：已完成
 - Ask：快问快答
 - Plan：多步骤任务，先收敛方案，生成 todo，默认高推理模式
 - Debug：排障，按“现象→分层验证→判断→下一步”推进
+- 行为协议已迁移到 `AGENTS.md` 生效
+- 已建立 `config/agent-role-registry.json` 作为角色注册表
+- 已建立 `docs/spawn-task-templates.md` 作为标准 spawn 模板库（含完整版与短模板版）
+- 已移除 workspace 内无效的 `behavior-protocol-enforcer` 技能实现
 
 ## 进度更新规则
 1. **每日更新**：各负责人（子进程）在任务进展时更新进度
