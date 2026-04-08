@@ -41,6 +41,7 @@ This workspace uses prompt-level enforcement, not pretend runtime hooks.
 - When spawning a sub-agent, explicitly include its role and protocol requirement in the task text, for example: “You are the architect role. Read `memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md` before acting.”
 - Use `config/agent-role-registry.json` as the role registry and `docs/spawn-task-templates.md` as the standard spawn template reference.
 - For standard roles, follow the matching template from `docs/spawn-task-templates.md` instead of improvising a vague spawn prompt.
+- Prefer Chinese task templates by default, while keeping role names, file paths, and protocol filenames exact.
 - Do not claim a protocol was auto-injected unless you actually read it in the current turn.
 - If protocol instructions conflict with higher-priority system/developer rules, follow the higher-priority rules and note the conflict briefly.
 
