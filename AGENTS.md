@@ -13,7 +13,7 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md` (仅限主会话，群聊中不加载 MEMORY.md，详见下方 Memory 章节)
 5. Read the applicable behavior protocol from `memory/long-term/` before any substantive action:
    - Main/default: `BEHAVIOR-PROTOCOL.md`
    - `plan` role: `BEHAVIOR-PROTOCOL-PLAN.md`
@@ -28,7 +28,7 @@ Behavior protocol selection rules:
 - If your session/task/label clearly maps to one of the specialist roles above, read that role file first, then use the main protocol as the coordination baseline when needed.
 - If the role is ambiguous, read `BEHAVIOR-PROTOCOL.md` first and say which role assumption you are using before continuing.
 - Do not rely on a skill, hidden tool, or auto-injection for this. Read the protocol file directly.
-- If the expected role protocol is missing, fall back to `BEHAVIOR-PROTOCOL.md` and report the gap.
+- If the expected role protocol is missing, report the gap to the main assistant (小青) and pause execution unless the main protocol provides alternative guidance.
 
 Don't ask permission. Just do it.
 
@@ -43,6 +43,7 @@ This workspace uses prompt-level enforcement, not pretend runtime hooks.
 - For standard roles, follow the matching template from `docs/spawn-task-templates.md` instead of improvising a vague spawn prompt.
 - Prefer Chinese task templates by default, while keeping role names, file paths, and protocol filenames exact.
 - Prefer the short template variant for high-frequency, low-ambiguity delegation to reduce token cost; use the full template when scope, risk, or context needs more explicit control.
+- Treat `config/agent-role-registry.json` as the source of truth for per-role model/thinking overrides. Current standard policy is default `deepseek/deepseek-chat` with adaptive thinking, except `architect`, which should be spawned with `openai-codex/gpt-5.4` and `high`.
 - Do not claim a protocol was auto-injected unless you actually read it in the current turn.
 - If protocol instructions conflict with higher-priority system/developer rules, follow the higher-priority rules and note the conflict briefly.
 
@@ -217,13 +218,35 @@ You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it
 
 ```json
 {
+  "version": 1,
+  "lastUpdated": "2026-04-08T03:58:00Z",
   "lastChecks": {
     "email": 1703275200,
     "calendar": 1703260800,
+    "mentions": null,
     "weather": null
+  },
+  "settings": {
+    "quietHoursStart": 23,
+    "quietHoursEnd": 8,
+    "maxCheckIntervalHours": 8
   }
 }
 ```
+
+**字段说明**
+- `version`: 模式版本，便于未来迁移
+- `lastUpdated`: 最后更新时间戳 (ISO 8601)
+- `lastChecks`: 各检查类型的最后执行时间戳 (Unix epoch seconds，null 表示从未检查)
+- `settings`: 检查行为配置
+
+**检查类型**
+- `email`: 邮件检查
+- `calendar`: 日历事件检查
+- `mentions`: 社交媒体提及检查
+- `weather`: 天气检查
+
+每次执行检查后更新对应时间戳。
 
 **When to reach out:**
 
@@ -265,7 +288,7 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 When work involves delegation, include a short **agent scheduling chain** in the reply so the user can inspect scope and boundaries.
 
 Preferred compact format:
-- `调度链：小青 -> 青卫 -> 结果汇总`
+- `调度链：小青 -> architect -> 结果汇总` (使用实际角色名: plan/architect/coder/env-engineer/debugger/tester)
 - If no delegation happened: `调度链：小青直做`
 - If approval blocked execution, show where it stopped.
 
