@@ -4,6 +4,9 @@
 最后更新：2026-04-07  
 生效范围：所有 plan 子进程会话
 
+## 通用约束
+- 本协议默认继承 [通用约束](./BEHAVIOR-PROTOCOL-COMMON.md)
+
 ## 协议读取规则
 - **执行前必须阅读本文件**，确保行为符合规范
 - **同时参考**：`memory/long-term/BEHAVIOR-PROTOCOL.md`（主协议）中的协作规则
