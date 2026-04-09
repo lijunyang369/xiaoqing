@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import json
-from datetime import date, datetime, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 try:
@@ -13,32 +13,12 @@ runs_file = home / 'subagents' / 'runs.json'
 tasks_dir = home / 'workspace' / 'tasks'
 
 
-def parse_dt(value):
-    if value in (None, 'null'):
-        return None
-    if isinstance(value, datetime):
-        return value if value.tzinfo else value.replace(tzinfo=timezone.utc)
-    if isinstance(value, date):
-        return datetime(value.year, value.month, value.day, tzinfo=timezone.utc)
-    try:
-        text = str(value)
-        dt = datetime.fromisoformat(text.replace('Z', '+00:00'))
-        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
-    except Exception:
-        return None
-
-
-def progress_icon(start, deadline, now):
-    if not start or not deadline or deadline <= start:
-        return '-'
-    ratio = (now - start).total_seconds() / (deadline - start).total_seconds()
-    if ratio < 1 / 3:
-        return '🟩'
-    if ratio < 2 / 3:
-        return '🟨'
-    if ratio < 1:
-        return '🟥'
-    return '⬛'
+try:
+    from task_progress import parse_dt, compute_progress_icon
+except Exception:
+    import sys
+    sys.path.append(str(Path(__file__).resolve().parent))
+    from task_progress import parse_dt, compute_progress_icon
 
 
 def load_interrupted():
@@ -56,14 +36,12 @@ def load_interrupted():
 
 
 def load_rows():
-    status_order = {
-        'Executing': 1,
-        'In Progress': 2,
-        'Verifying': 3,
-        'Blocked': 4,
-        'WaitingDecision': 5,
-        'Released': 6,
-        'Ready': 7,
+    progress_order = {
+        '⬛': 0,
+        '🟥': 1,
+        '🟨': 2,
+        '🟩': 3,
+        '-': 4,
     }
     rows = []
     now = datetime.now(timezone.utc)
@@ -81,14 +59,23 @@ def load_rows():
         agent = task.get('assignedRole') or '未分配'
         start = parse_dt(task.get('startedAt') or task.get('createdAt'))
         deadline = parse_dt(task.get('deadline'))
+        progress = compute_progress_icon(start, deadline, now)
+        priority_score = task.get('priorityScore')
+        try:
+            priority_score = int(priority_score)
+        except Exception:
+            priority_score = 999
         rows.append((
-            status_order.get(status, 99),
+            progress_order.get(progress, 99),
+            deadline is None,
+            deadline or datetime.max.replace(tzinfo=timezone.utc),
+            -priority_score,
             title,
             status,
-            progress_icon(start, deadline, now),
+            progress,
             agent,
         ))
-    rows.sort(key=lambda x: (x[0], x[1]))
+    rows.sort(key=lambda x: (x[0], x[1], x[2], x[3], x[4]))
     return rows
 
 
@@ -113,7 +100,7 @@ def main():
     print('### 任务状态表格')
     print('| 任务Title | 状态 | 进度 | 执行Agent |')
     print('|---|---|---|---|')
-    for _, title, status, progress, agent in load_rows():
+    for *_, title, status, progress, agent in load_rows():
         print(f'| {title} | {status} | {progress} | {agent} |')
 
 
