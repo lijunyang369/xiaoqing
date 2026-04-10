@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## 会话启动
-在做任何实质性动作前,先读取 `SOUL.md`、`USER.md`、`./memory/long-term/BEHAVIOR-PROTOCOL.md`，并继续读取该协议显式链接、继承或要求先读的其它文件,直到适用规则链读取完成（例如 `./memory/long-term/BEHAVIOR-PROTOCOL-COMMON.md`）。
+在做任何实质性动作前,先读取 `SOUL.md`、`USER.md`、`./protocols/BEHAVIOR-PROTOCOL.md`，并继续读取该协议显式链接、继承或要求先读的其它文件,直到适用规则链读取完成。
 
 ## 红线
 

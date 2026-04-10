@@ -1,0 +1,53 @@
+id: TOC-001
+title: 建立并试运行 TOC + CCPM 协作系统 v1
+goal: 让“小青 + 俊阳”协作进入按关键链和缓冲运行的可持续优化模式
+value: high
+deadline: null
+priorityScore: 98
+
+status: In Progress
+stageOwner: xiaoqing
+assignedRole: xiaoqing
+
+definitionOfDone:
+  - 恢复 TOC 主任务运行状态
+  - 形成 CCPM 最小落地规则文档
+  - 恢复 TOC 心跳检查
+  - 用至少一个真实任务按 CCPM 视角运行
+  - 输出第一轮复盘结论
+
+inputs:
+  - docs/toc-operating-system.md
+  - docs/toc-daily-sop.md
+  - docs/toc-ccpm.md
+outputs:
+  - 更新后的 TOC / CCPM 运行规则
+  - 心跳恢复配置
+  - 第一轮 CCPM 试运行记录
+
+dependencies: []
+blockers: []
+
+risks:
+  - 关键链定义过大，导致执行口径漂移
+  - 心跳恢复后重新引入噪音检查
+  - 没有真实任务试跑，规则会停留在纸面
+
+decisionNeeded: false
+decisionDeadline: null
+
+currentConstraintImpact: high
+reworkCount: 0
+sourceOfRework: null
+
+createdAt: 2026-04-10T16:50:00+08:00
+updatedAt: 2026-04-10T16:50:00+08:00
+releasedAt: 2026-04-10T16:50:00+08:00
+startedAt: 2026-04-10T16:50:00+08:00
+verifiedAt: null
+doneAt: null
+
+notes:
+  - 2026-04-10 用户明确要求开始 TOC 的 CCPM
+  - v0.1 先采用最小可运行框架，不先做复杂排程
+  - 当前先恢复运行，再用真实任务校准关键链与缓冲口径

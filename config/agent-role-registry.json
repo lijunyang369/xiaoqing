@@ -5,19 +5,19 @@
   "roles": {
     "main": {
       "sessionType": "main",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL.md",
+      "protocol": "protocols/BEHAVIOR-PROTOCOL.md",
       "labelHint": "main",
       "spawnTemplate": "main-direct"
     },
     "plan": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-PLAN.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-PLAN.md",
       "labelHint": "plan - <task>",
       "spawnTemplate": "plan"
     },
     "architect": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-ARCHITECT.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-ARCHITECT.md",
       "labelHint": "architect - <task>",
       "spawnTemplate": "architect",
       "model": "openai-codex/gpt-5.4",
@@ -25,31 +25,31 @@
     },
     "coder": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-CODER.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-CODER.md",
       "labelHint": "coder - <task>",
       "spawnTemplate": "coder"
     },
     "env-engineer": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md",
       "labelHint": "env-engineer - <task>",
       "spawnTemplate": "env-engineer"
     },
     "debugger": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-DEBUGGER.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-DEBUGGER.md",
       "labelHint": "debugger - <task>",
       "spawnTemplate": "debugger"
     },
     "tester": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-TESTER.md",
+      "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-TESTER.md",
       "labelHint": "tester - <task>",
       "spawnTemplate": "tester"
     },
     "toc-monitor": {
       "sessionType": "subagent",
-      "protocol": "memory/long-term/BEHAVIOR-PROTOCOL-TOC-MONITOR.md",
+      "protocol": "protocols/toc/BEHAVIOR-PROTOCOL-TOC-MONITOR.md",
       "labelHint": "toc-monitor - <check_type>",
       "spawnTemplate": "toc-monitor",
       "model": "deepseek/deepseek-chat",
