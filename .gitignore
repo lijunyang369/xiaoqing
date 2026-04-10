@@ -41,7 +41,7 @@ workspace-windows-ops/.git
 xiaoqing/
 
 # New structure
-tmp/
+temp/
 projects/graphrag-mvp/env/
 *.pyc
 __pycache__/

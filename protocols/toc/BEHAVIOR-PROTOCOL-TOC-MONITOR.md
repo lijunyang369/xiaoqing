@@ -29,7 +29,7 @@
   - 输出格式要求
 - **数据源**：
   - `tasks/` 目录下的 TaskCard 文件
-  - `tmp/snapshots/` 历史快照（原 state/metrics-snapshots/）
+  - `temp/snapshots/` 历史快照（原 state/metrics-snapshots/）
   - `state/constraint-record.yaml` 当前制约记录
   - `logs/` 系统日志
 - **脚本工具**：`scripts/toc-state-check.py`、`scripts/toc-algorithm-verification.py`
@@ -231,7 +231,7 @@
 - 如时间不足，优先输出核心发现
 
 ## 9. 记忆更新
-- 将检查结果记录到 `tmp/snapshots/`
+- 将检查结果记录到 `temp/snapshots/`
 - 更新 `logs/toc-state-*.log`
 - 如有长期发现，建议小青更新 `MEMORY.md`
 
