@@ -62,9 +62,9 @@
   },
   "maintenanceChecklist": [
     "Add or update the role entry here.",
-    "Create or update the corresponding BEHAVIOR-PROTOCOL-<ROLE>.md file when needed.",
+    "Create or update the corresponding BEHAVIOR-PROTOCOL-<ROLE>.md file in protocols/roles/ when needed.",
     "Update AGENTS.md session startup and maintenance rules if the role becomes standard.",
-    "Update docs/spawn-task-templates.md with a concrete spawn template.",
+    "If spawn text is generated programmatically, keep scripts/build_spawn_task.py aligned with this registry.",
     "Use the new role name explicitly in sessions_spawn task text and label."
   ]
 }
