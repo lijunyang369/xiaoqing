@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-try:
-    import yaml
-except Exception:
-    yaml = None
-
 home = Path.home() / '.openclaw'
 runs_file = home / 'subagents' / 'runs.json'
-tasks_dir = home / 'workspace' / 'tasks'
+tasks_dir = home / 'workspace' / 'tasks' / 'active'
 
 
 try:
@@ -35,6 +31,40 @@ def load_interrupted():
         return []
 
 
+def parse_markdown_task(content):
+    """从Markdown任务文件中解析字段"""
+    task = {}
+    
+    # 解析ID和名称
+    id_match = re.search(r'- ID: (.+)', content)
+    if id_match:
+        task['id'] = id_match.group(1).strip()
+    
+    name_match = re.search(r'- 名称: (.+)', content)
+    if name_match:
+        task['title'] = name_match.group(1).strip()
+    
+    status_match = re.search(r'- 状态: (.+)', content)
+    if status_match:
+        task['status'] = status_match.group(1).strip()
+    
+    agent_match = re.search(r'- 负责人: (.+)', content)
+    if agent_match:
+        task['agent'] = agent_match.group(1).strip()
+    
+    created_match = re.search(r'- 创建时间: (.+)', content)
+    if created_match:
+        task['createdAt'] = created_match.group(1).strip()
+    
+    deadline_match = re.search(r'- 截止时间: (.+)', content)
+    if deadline_match:
+        deadline_str = deadline_match.group(1).strip()
+        if deadline_str != '未设置':
+            task['deadline'] = deadline_str
+    
+    return task
+
+
 def load_rows():
     progress_order = {
         '⬛': 0,
@@ -45,26 +75,35 @@ def load_rows():
     }
     rows = []
     now = datetime.now(timezone.utc)
-    if yaml is None or not tasks_dir.exists():
+    
+    if not tasks_dir.exists():
         return rows
-    for path in sorted(tasks_dir.glob('*.yaml')):
+    
+    for path in sorted(tasks_dir.glob('*.md')):
         try:
-            task = yaml.safe_load(path.read_text(encoding='utf-8')) or {}
+            content = path.read_text(encoding='utf-8')
+            task = parse_markdown_task(content)
         except Exception:
             continue
-        if task.get('status') == 'Done':
+        
+        # 跳过已完成的任务
+        status = task.get('status', '')
+        if status in ['Done', 'Completed']:
             continue
+        
         title = task.get('title') or path.stem
-        status = task.get('status') or '-'
-        agent = task.get('assignedRole') or '未分配'
-        start = parse_dt(task.get('startedAt') or task.get('createdAt'))
+        agent = task.get('agent') or '未分配'
+        
+        # 解析时间
+        start = parse_dt(task.get('createdAt'))
         deadline = parse_dt(task.get('deadline'))
+        
+        # 计算进度
         progress = compute_progress_icon(start, deadline, now)
-        priority_score = task.get('priorityScore')
-        try:
-            priority_score = int(priority_score)
-        except Exception:
-            priority_score = 999
+        
+        # 优先级处理（简化，从文件名或内容中提取）
+        priority_score = 999  # 默认低优先级
+        
         rows.append((
             progress_order.get(progress, 99),
             deadline is None,
@@ -75,6 +114,7 @@ def load_rows():
             progress,
             agent,
         ))
+    
     rows.sort(key=lambda x: (x[0], x[1], x[2], x[3], x[4]))
     return rows
 
@@ -90,6 +130,8 @@ def main():
         recovered_tasks = '无'
         not_recovered = '无'
 
+    rows = load_rows()
+
     print('## Boot恢复回复')
     print()
     print('### 任务恢复说明')
@@ -100,7 +142,10 @@ def main():
     print('### 任务状态表格')
     print('| 任务Title | 状态 | 进度 | 执行Agent |')
     print('|---|---|---|---|')
-    for *_, title, status, progress, agent in load_rows():
+    if not rows:
+        print('| 无 | - | - | - |')
+        return
+    for *_, title, status, progress, agent in rows:
         print(f'| {title} | {status} | {progress} | {agent} |')
 
 

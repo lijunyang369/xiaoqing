@@ -174,18 +174,18 @@
 ### 5.2 协议读取规则
 
 - **标准子进程角色协议**:按角色读取对应协议文件：
-  - `plan` → `protocols/BEHAVIOR-PROTOCOL-PLAN.md`
-  - `architect` → `protocols/BEHAVIOR-PROTOCOL-ARCHITECT.md`
-  - `coder` → `protocols/BEHAVIOR-PROTOCOL-CODER.md`
-  - `env-engineer` → `protocols/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md`
-  - `debugger` → `protocols/BEHAVIOR-PROTOCOL-DEBUGGER.md`
-  - `tester` → `protocols/BEHAVIOR-PROTOCOL-TESTER.md`
+  - `plan` → `protocols/roles/BEHAVIOR-PROTOCOL-PLAN.md`
+  - `architect` → `protocols/roles/BEHAVIOR-PROTOCOL-ARCHITECT.md`
+  - `coder` → `protocols/roles/BEHAVIOR-PROTOCOL-CODER.md`
+  - `env-engineer` → `protocols/roles/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md`
+  - `debugger` → `protocols/roles/BEHAVIOR-PROTOCOL-DEBUGGER.md`
+  - `tester` → `protocols/roles/BEHAVIOR-PROTOCOL-TESTER.md`
 - **TOC 相关协议**:
   - TOC 协作规则 → `protocols/BEHAVIOR-PROTOCOL-TOC.md`
   - TOC 监控角色 → `protocols/BEHAVIOR-PROTOCOL-TOC-MONITOR.md`
 - **角色不明确**:先读取主协议,并说明当前采用的角色假设
 - **协议缺失**:如预期协议文件缺失,向小青报告并暂停执行,除非主协议提供替代指导
-- **Spawn 要求**:Spawn 时任务描述必须包含"请先阅读 `protocols/BEHAVIOR-PROTOCOL-<角色>.md`",执行前必须读取对应协议文件
+- **Spawn 要求**:Spawn 时任务描述必须包含"请先阅读 `protocols/roles/BEHAVIOR-PROTOCOL-<角色>.md`",执行前必须读取对应协议文件
 - **专职 agent**:通过技能文件或消息传递协议要点,如无专用协议参考主协议
 
 ### 5.3 启动时任务恢复
