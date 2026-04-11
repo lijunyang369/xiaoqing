@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-11T07:42:28.450Z",
+  "entries": {
+    "memory:memory/2026-04-09.md:363:381": {
+      "key": "memory:memory/2026-04-09.md:363:381",
+      "path": "memory/2026-04-09.md",
+      "startLine": 363,
+      "endLine": 381,
+      "source": "memory",
+      "snippet": "- **结果**：第4章现在更准确匹配当前模板现状，不再出现“协议写摘要、模板写表格”的不一致 ## 下午 16:08 - 4.3 进一步收敛 - **用户要求**：4.3 的主题就是“识别到任务状态变更时，触发任务状态更新”，若切换任务则说明切换原因 - **执行内容**： - 将 4.3 改名为“任务状态变更更新规则” - 删除与该主题无关的展开描述 - 保留四步更新动作：更新状态、同步 `TASKS.md`、同步 task 文件、重定当前聚焦任务 - 保留“任务切换时必须说明切换原因” - **结果**：4.3 的单一主题更明确，规则更聚焦 ## 下午 16:10 - 删除 4.3 中的回复重复要求 - **用户反馈**：回复内容上面已经定义过了，不要在 4.3 重复添加 - **执行内容**：删除 4.3 中“回复要求”相关内容，只保留状态更新触发条件、更新动作、任务切换原因与非状态变更边界 - **结果**：4.2 负责回复逻辑，4.3 只负责状态更新逻辑，职责边界更清晰 ## 下午 16:12 - 删除 4.3 多余边界句 - **用户反馈**：4.3 中“非状态变更”边界句是多余的 - **执行内容**：删除该句，只保留触发条件、更新动作和任务切换原因",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.8421040821652258,
+      "maxScore": 0.8421040821652258,
+      "firstRecalledAt": "2026-04-11T07:42:28.450Z",
+      "lastRecalledAt": "2026-04-11T07:42:28.450Z",
+      "queryHashes": [
+        "b0b1630fc166"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "4.3",
+        "tasks.md",
+        "4.2",
+        "结果",
+        "现在",
+        "准确",
+        "匹配",
+        "当前"
+      ]
+    },
+    "memory:memory/2026-04-09.md:156:174": {
+      "key": "memory:memory/2026-04-09.md:156:174",
+      "path": "memory/2026-04-09.md",
+      "startLine": 156,
+      "endLine": 174,
+      "source": "memory",
+      "snippet": "- 保留四步更新动作：更新状态、同步 `TASKS.md`、同步 task 文件、重定当前聚焦任务 - 保留“任务切换时必须说明切换原因” - **结果**：4.3 的单一主题更明确，规则更聚焦 ## 下午 16:10 - 删除 4.3 中的回复重复要求 - **用户反馈**：回复内容上面已经定义过了，不要在 4.3 重复添加 - **执行内容**：删除 4.3 中“回复要求”相关内容，只保留状态更新触发条件、更新动作、任务切换原因与非状态变更边界 - **结果**：4.2 负责回复逻辑，4.3 只负责状态更新逻辑，职责边界更清晰 ## 下午 16:12 - 删除 4.3 多余边界句 - **用户反馈**：4.3 中“非状态变更”边界句是多余的 - **执行内容**：删除该句，只保留触发条件、更新动作和任务切换原因 - **结果**：4.3 更短，也更符合单一主题 ## 下午 16:17 - 抽离进度计算脚本 - **用户要求**：任务状态表格中的“进度”计算依赖 boot 渲染逻辑，需要抽离成单独脚本做复用，再由回复模板引用 - **执行内容**： - 新建 `scripts/task_progress.py`，承载日期解析与进度色块计算逻辑 - 更新 `scripts/render_boot_reply.py`，改为复用 `task_progress.py`",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.838727475841947,
+      "maxScore": 0.838727475841947,
+      "firstRecalledAt": "2026-04-11T07:42:28.450Z",
+      "lastRecalledAt": "2026-04-11T07:42:28.450Z",
+      "queryHashes": [
+        "b0b1630fc166"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "tasks.md",
+        "4.3",
+        "4.2",
+        "scripts/task-progress.py",
+        "scripts/render-boot-reply.py",
+        "task-progress.py",
+        "保留",
+        "四步"
+      ]
+    },
+    "memory:memory/2026-04-09.md:377:395": {
+      "key": "memory:memory/2026-04-09.md:377:395",
+      "path": "memory/2026-04-09.md",
+      "startLine": 377,
+      "endLine": 395,
+      "source": "memory",
+      "snippet": "- **结果**：4.2 负责回复逻辑，4.3 只负责状态更新逻辑，职责边界更清晰 ## 下午 16:12 - 删除 4.3 多余边界句 - **用户反馈**：4.3 中“非状态变更”边界句是多余的 - **执行内容**：删除该句，只保留触发条件、更新动作和任务切换原因 - **结果**：4.3 更短，也更符合单一主题 ## 下午 16:17 - 抽离进度计算脚本 - **用户要求**：任务状态表格中的“进度”计算依赖 boot 渲染逻辑，需要抽离成单独脚本做复用，再由回复模板引用 - **执行内容**： - 新建 `scripts/task_progress.py`，承载日期解析与进度色块计算逻辑 - 更新 `scripts/render_boot_reply.py`，改为复用 `task_progress.py` - 更新 `templates/task-status-summary-template.md`、`templates/boot-recovery-reply-template.md`、`templates/xiaoqing-reply-template.md`，明确“进度”列按 `scripts/task_progress.py` 计算 - 更新 `BEHAVIOR-PROTOCOL.md` 第4章对应模板引用说明 - **验证**：已通过 `python3 -m py_compile` 校验脚本语法 - **结果**：进度计算已从 boot 渲染逻辑中抽离，回复侧与 boot 侧共用同一计算脚本 ## 下午 16:26 - 收紧脚本引用边",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7789222538245445,
+      "maxScore": 0.7789222538245445,
+      "firstRecalledAt": "2026-04-11T07:42:28.450Z",
+      "lastRecalledAt": "2026-04-11T07:42:28.450Z",
+      "queryHashes": [
+        "b0b1630fc166"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "4.2",
+        "4.3",
+        "scripts/task-progress.py",
+        "scripts/render-boot-reply.py",
+        "task-progress.py",
+        "behavior-protocol.md",
+        "py-compile",
+        "结果"
+      ]
+    },
+    "memory:memory/2026-04-08.md:141:167": {
+      "key": "memory:memory/2026-04-08.md:141:167",
+      "path": "memory/2026-04-08.md",
+      "startLine": 141,
+      "endLine": 167,
+      "source": "memory",
+      "snippet": "- 将“项目进度表 + 当前进行中任务状态 + 正文”的默认回复结构写入 `AGENTS.md` - 将同一套规则写入 `memory/long-term/BEHAVIOR-PROTOCOL.md` - 将展示模板、排序规则、颜色计算规则写入 `docs/TASK-SYSTEM.md` 确认的展示规则： - 表格列固定为：排序、项目/任务、优先级、起始时间、结束时间、时间进度、状态、当前进展、下一步 - `项目/任务` 使用文字标题 - `状态` 只显示色块，不加文字 - 没有 `deadline` 的任务显示 `结束时间=-`、`时间进度=-`、`状态=-`，并统一排在最后 确认的逻辑规则： - 排序：先按结束时间，再按优先级，再按起始时间；无 deadline 排最后 - 颜色：时间进度 `<1/3` 为 `🟩`，`<2/3` 为 `🟨`，`<1` 为 `🟥`，`>=1` 为 `⬛` - 如果没有活跃任务，当前任务状态表格显示一整行 `无 / - / - / - / - / - / -` 后续调整： - 将“当前进行中任务状态”从列表改为表格展示 - 新增字段：`执行agent` - 当前任务状态表固定列为：当前任务、执行agent、状态、当前动作、当前进展、下一步、风险/阻塞 --- ## 2026-04-08 21:33 (Asia/Shanghai) ### BOOT-OPT-001 架构设计完成 背景：",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7407398663049152,
+      "maxScore": 0.7407398663049152,
+      "firstRecalledAt": "2026-04-11T07:42:28.450Z",
+      "lastRecalledAt": "2026-04-11T07:42:28.450Z",
+      "queryHashes": [
+        "b0b1630fc166"
+      ],
+      "recallDays": [
+        "2026-04-11"
+      ],
+      "conceptTags": [
+        "agents.md",
+        "docs/task-system.md",
+        "项目/任务",
+        "1/3",
+        "2/3",
+        "风险/阻塞",
+        "asia/shanghai",
+        "boot-opt-001"
+      ]
+    }
+  }
+}
