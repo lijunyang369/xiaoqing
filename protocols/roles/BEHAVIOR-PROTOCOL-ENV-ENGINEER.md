@@ -8,9 +8,10 @@
 - 本协议默认继承 [通用约束](../BEHAVIOR-PROTOCOL-COMMON.md)
 
 ## 协议读取规则
-- **执行前必须阅读本文件**，确保行为符合规范
-- **同时参考**：`protocols/BEHAVIOR-PROTOCOL.md`（主协议）中的协作规则
-- **如本文件与主协议冲突**，以主协议为准，并报告小青
+- **执行前必须先遵守**：`protocols/BEHAVIOR-PROTOCOL-COMMON.md`（公共协议）
+- **执行前必须阅读本文件**，确保行为符合 env-engineer 角色规范
+- **本文件负责**：env-engineer 角色的专属职责、输入、流程、输出与协作规则
+- **如本文件与公共协议冲突**，以公共协议为准，并报告小青
 
 ## 1. 角色定位
 - **名称**：env-engineer

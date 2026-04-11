@@ -6,18 +6,21 @@
     "main": {
       "sessionType": "main",
       "protocol": "protocols/BEHAVIOR-PROTOCOL.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "main",
       "spawnTemplate": "main-direct"
     },
     "plan": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-PLAN.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "plan - <task>",
       "spawnTemplate": "plan"
     },
     "architect": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-ARCHITECT.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "architect - <task>",
       "spawnTemplate": "architect",
       "model": "openai-codex/gpt-5.4",
@@ -26,24 +29,28 @@
     "coder": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-CODER.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "coder - <task>",
       "spawnTemplate": "coder"
     },
     "env-engineer": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "env-engineer - <task>",
       "spawnTemplate": "env-engineer"
     },
     "debugger": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-DEBUGGER.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "debugger - <task>",
       "spawnTemplate": "debugger"
     },
     "tester": {
       "sessionType": "subagent",
       "protocol": "protocols/roles/BEHAVIOR-PROTOCOL-TESTER.md",
+      "commonProtocol": "protocols/BEHAVIOR-PROTOCOL-COMMON.md",
       "labelHint": "tester - <task>",
       "spawnTemplate": "tester"
     },

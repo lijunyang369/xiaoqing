@@ -179,22 +179,25 @@
 - **不同步内容**:`temp/` 临时文件、虚拟环境目录、设备特定配置(通过环境变量覆盖)
 - **同步时机**:每次重要变更后提交并推送,每日至少同步一次
 
-### 5.2 协议读取规则
+### 5.2 协议层级与读取规则
 
-- **标准子进程角色协议**:按角色读取对应协议文件：
+- **公共协议**：`protocols/BEHAVIOR-PROTOCOL-COMMON.md`，所有进程都必须遵守
+- **主协议**：`protocols/BEHAVIOR-PROTOCOL.md`，仅小青主进程参考与遵守，不作为所有子进程的共同必读协议
+- **子协议**：按角色读取对应协议文件：
   - `plan` → `protocols/roles/BEHAVIOR-PROTOCOL-PLAN.md`
   - `architect` → `protocols/roles/BEHAVIOR-PROTOCOL-ARCHITECT.md`
   - `coder` → `protocols/roles/BEHAVIOR-PROTOCOL-CODER.md`
   - `env-engineer` → `protocols/roles/BEHAVIOR-PROTOCOL-ENV-ENGINEER.md`
   - `debugger` → `protocols/roles/BEHAVIOR-PROTOCOL-DEBUGGER.md`
   - `tester` → `protocols/roles/BEHAVIOR-PROTOCOL-TESTER.md`
+- **子进程读取顺序**：先遵守公共协议，再读取并遵守自己的角色子协议
+- **角色不明确**：先读取公共协议，并说明当前采用的角色假设；如需临时执行，再读取最接近的角色子协议
+- **协议缺失**：如预期子协议文件缺失，向小青报告并暂停执行，除非公共协议提供替代指导
+- **Spawn 要求**：Spawn 时任务描述必须显式包含对应子协议路径，执行前必须读取对应子协议文件；优先通过 `python3 scripts/build_spawn_task.py <role> "<任务正文>"` 生成标准 task 文本
+- **专职 agent**：通过技能文件或消息传递协议要点；如无专用协议，则遵守公共协议与最接近的角色子协议
 - **TOC 相关协议**:
   - TOC 协作规则 → `protocols/BEHAVIOR-PROTOCOL-TOC.md`
   - TOC 监控角色 → `protocols/BEHAVIOR-PROTOCOL-TOC-MONITOR.md`
-- **角色不明确**:先读取主协议,并说明当前采用的角色假设
-- **协议缺失**:如预期协议文件缺失,向小青报告并暂停执行,除非主协议提供替代指导
-- **Spawn 要求**:Spawn 时任务描述必须显式包含对应协议路径，执行前必须读取对应协议文件；优先通过 `python3 scripts/build_spawn_task.py <role> "<任务正文>"` 生成标准 task 文本
-- **专职 agent**:通过技能文件或消息传递协议要点,如无专用协议参考主协议
 
 ### 5.3 启动时任务恢复
 - **检查中断任务**:每次小青启动时检查是否有因 gateway 关闭而中断的任务,通过读取最近任务记录、检查 TASKS.md 状态、检查 sessions_list 状态判断

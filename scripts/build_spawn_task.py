@@ -19,10 +19,14 @@ def build_task(role: str, body: str) -> str:
         raise SystemExit(f'Unknown role: {role}. Valid roles: {valid}')
 
     protocol = roles[role].get('protocol')
+    common_protocol = roles[role].get('commonProtocol')
     if not protocol:
         raise SystemExit(f'Role {role} has no protocol path in registry')
 
-    return f"请先阅读 `{protocol}`，然后执行以下任务：\n\n{body.strip()}"
+    if role == 'main' or not common_protocol:
+        return f"请先阅读 `{protocol}`，然后执行以下任务：\n\n{body.strip()}"
+
+    return f"请先遵守 `{common_protocol}`，再阅读 `{protocol}`，然后执行以下任务：\n\n{body.strip()}"
 
 
 def main():
